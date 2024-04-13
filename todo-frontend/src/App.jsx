@@ -17,7 +17,8 @@ function App() {
     <>
       <h2>T.A.S.K</h2>
       <CreateTodo />
-      <TodoList todos={todos}/>
+      <TodoList key={todos._id} todos={todos}/>
+      {/* MARK AS DONE, DELETE, DESIGN */}
     </>
   )
 }
