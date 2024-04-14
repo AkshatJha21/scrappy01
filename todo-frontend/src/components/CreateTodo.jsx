@@ -1,10 +1,11 @@
 import React, { useState } from 'react'
+import './createTodo.css'
 
 const CreateTodo = () => {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
   return (
-    <div>
+    <div className='container'>
         <input type="text" placeholder='Title' onChange={(e) => {
             const value = e.target.value;
             setTitle(e.target.value);
@@ -15,7 +16,7 @@ const CreateTodo = () => {
             setDescription(e.target.value);
         }}/>
         <br />
-        <button onClick={() => {
+        <button className='add' onClick={() => {
             fetch("http://localhost:3000/todo", {
                 method: "POST",
                 body: JSON.stringify({
@@ -29,7 +30,7 @@ const CreateTodo = () => {
                 await res.json();
                 console.log("Todo added");
             })
-        }}>Add Todo</button>
+        }}>ADD TODO</button>
     </div>
   )
 }
