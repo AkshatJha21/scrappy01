@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 const TodoList = ({ todos }) => {
   const [done, setDone] = useState(false);
@@ -26,7 +26,20 @@ const TodoList = ({ todos }) => {
                         console.log("Todo updated");
                       })
                     }}>{todo.completed == true ? 'Done' : 'Mark as done'}</button><br />
-                    <button>Delete</button>
+                    <button onClick={() => {
+                      fetch("http://localhost:3000/remove" ,{
+                        method: "DELETE",
+                        body: JSON.stringify({
+                          id: todo._id
+                        }),
+                        headers: {
+                          "Content-type": "application/json"
+                        }
+                      }).then(async function (res) {
+                        await res.json();
+                        console.log("Todo deleted");
+                      })
+                    }}>Delete</button>
                 </>
             )
         })}
