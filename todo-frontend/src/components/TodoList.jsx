@@ -25,6 +25,7 @@ const TodoList = ({ todos }) => {
                         }).then(async function (res) {
                           await res.json();
                           console.log("Todo updated");
+                          window.location.reload();
                         })
                       }}>{todo.completed == true ? 'Done' : 'Mark as done'}</button>
                       <button className='delete' onClick={() => {
@@ -39,6 +40,7 @@ const TodoList = ({ todos }) => {
                         }).then(async function (res) {
                           await res.json();
                           console.log("Todo deleted");
+                          window.location.reload();
                         })
                       }}>Delete</button>
                     </div>
