@@ -11,7 +11,21 @@ const TodoList = ({ todos }) => {
                 <>
                     <h2>{todo.title}</h2>
                     <p>{todo.description}</p>
-                    <button>{todo.completed == true ? 'Done' : 'Mark as done'}</button><br />
+                    <button onClick={() => {
+                      setDone(true);
+                      fetch("http://localhost:3000/done" ,{
+                        method: "PUT",
+                        body: JSON.stringify({
+                          id: todo._id
+                        }),
+                        headers: {
+                          "Content-type": "application/json"
+                        }
+                      }).then(async function (res) {
+                        await res.json();
+                        console.log("Todo updated");
+                      })
+                    }}>{todo.completed == true ? 'Done' : 'Mark as done'}</button><br />
                     <button>Delete</button>
                 </>
             )

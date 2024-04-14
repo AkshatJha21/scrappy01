@@ -27,7 +27,7 @@ const CreateTodo = () => {
                 }
             }).then(async function (res) {
                 await res.json();
-                alert("Todo added");
+                console.log("Todo added");
             })
         }}>Add Todo</button>
     </div>
