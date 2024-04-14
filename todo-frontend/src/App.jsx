@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      <h2>T.A.S.K</h2>
+      <h2 className='header'>Scrappy Todo</h2>
       <CreateTodo />
       <TodoList key={todos._id} todos={todos}/>
       {/* MARK AS DONE, DELETE, DESIGN */}
