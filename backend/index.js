@@ -3,6 +3,8 @@ const { todo } = require("./db");
 const { createTodo, updateTodo } = require("./types");
 const cors = require("cors");
 
+const rootRouter = require("./routes/index");
+
 const app = express();
 const port = 3000;
 
@@ -85,3 +87,15 @@ app.delete('/remove', async (req, res) => {
 app.listen(port, (req, res) => {
     console.log(`Listening on port ${port}`);
 });
+
+// TODO: 
+// Create rootRouter, userRouter and todoRouter
+//  
+//  
+//  
+//  
+//  
+//  
+//  
+//  
+//  
