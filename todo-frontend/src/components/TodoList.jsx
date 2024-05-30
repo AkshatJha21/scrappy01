@@ -3,6 +3,7 @@ import './todolist.css'
 import EditTodo from './EditTodo';
 
 const TodoList = ({ todos }) => {
+  
   const [currentTodo, setCurrentTodo] = useState(null);
 
   const handleClick = (todo) => {
@@ -19,12 +20,11 @@ const TodoList = ({ todos }) => {
         <EditTodo todo={currentTodo} closeDialog={handleClose}/>
       )}
       <div className='list'>
-          {todos.map((todo) => {
-              return (
-                  <div className='todo'>
+          {todos.map((todo) => (
+                  <div className='todo' key={todo._id}>
                       <div style={{display: "flex", justifyContent: "space-between"}}>
                         <h2 className='title'>{todo.title}</h2>
-                        <button className='editBtn' onClick={handleClick(todo)}>Edit</button>
+                        <button className='editBtn' onClick={() => handleClick(todo)}>Edit</button>
                       </div>                  
                       <p className='description'>{todo.description}</p>
                       <div className='btns'>
@@ -61,7 +61,7 @@ const TodoList = ({ todos }) => {
                       </div>
                   </div>
               )
-          })}
+          )}
       </div>
     </>
   )
