@@ -67,3 +67,9 @@
     transition: all;
     transition-duration: 200ms;
 }
+
+.editBtn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
