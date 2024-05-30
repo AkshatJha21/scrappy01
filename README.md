@@ -3,6 +3,7 @@
 This is a scrappy todo app that has the following functionalities:
 - Create New Todo
 - Render all Todos
+- Edit a Todo
 - Mark a Todo as done
 - Delete a Todo
 
@@ -15,3 +16,4 @@ The Scrappy Todo app uses the following:
 - Node
 
 ![Home Page](demo.png)
+![Edit Todo](edit.png)
