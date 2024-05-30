@@ -39,6 +39,28 @@ app.post('/todo', async (req, res) => {
     });
 });
 
+app.put('/edit', async (req, res) => {
+    const editPayload = req.body;
+    const parsedPayload = createTodo.safeParse(editPayload);
+
+    if(!parsedPayload.success) {
+        return res.status(411).json({
+            message: "Incorrect inputs"
+        });
+    };
+
+    await todo.updateOne({
+        _id: editPayload.id,
+    }, {
+        title: editPayload.title,
+        description: editPayload.description
+    });
+
+    res.status(200).json({
+        message: "Todo edited successfuly"
+    });
+});
+
 app.put('/done', async (req, res) => {
     const updatePayload = req.body;
     const parsedPayload = updateTodo.safeParse(updatePayload);
